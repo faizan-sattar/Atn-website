@@ -1,0 +1,12 @@
+{
+  "liveServer.settings.root": "/",
+  "liveServer.settings.file": "index.html",
+  "liveServer.settings.CustomBrowser": "chrome",
+  "liveServer.settings.AdvanceCustomBrowserCmdLine": "",
+  "liveServer.settings.ignoreFiles": [
+    ".vscode/**",
+    "**/*.scss",
+    "**/*.sass",
+    "**/*.ts"
+  ]
+}
