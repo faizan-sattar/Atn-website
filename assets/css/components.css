@@ -43,7 +43,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: var(--font-bold);
   font-family: var(--font-heading);
   color: #ffffff;
@@ -57,7 +57,7 @@
 
 .logo img,
 .logo-image {
-  height: 35px;
+  height: 32px;
   width: auto;
   border-radius: 4px;
 }
@@ -560,6 +560,8 @@
   border-radius: var(--radius-full);
   font-size: var(--font-xs);
   backdrop-filter: blur(10px);
+  color: #ffffff;
+  font-weight: 500;
 }
 
 /* Blog Card */
