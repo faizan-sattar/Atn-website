@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | ATN</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <style>
+        .admin-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .admin-header {
+            background: #1a1a1a;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .admin-nav {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+        }
+
+        .admin-nav button {
+            padding: 0.75rem 1.5rem;
+            background: #2a2a2a;
+            border: 2px solid #3a3a3a;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .admin-nav button.active {
+            background: #2563eb;
+            border-color: #2563eb;
+        }
+
+        .admin-nav button:hover {
+            background: #3a3a3a;
+        }
+
+        .admin-section {
+            display: none;
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        .admin-section.active {
+            display: block;
+        }
+
+        .admin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .admin-card {
+            background: #2a2a2a;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #3a3a3a;
+        }
+
+        .admin-card h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .admin-card p {
+            color: #b0b0b0;
+            margin-bottom: 0.5rem;
+        }
+
+        .admin-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .admin-form {
+            display: grid;
+            gap: 1rem;
+            max-width: 600px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            color: white;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 0.75rem;
+            background: #2a2a2a;
+            border: 2px solid #3a3a3a;
+            border-radius: 6px;
+            color: white;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .btn-add {
+            background: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-add:hover {
+            background: #059669;
+        }
+
+        .btn-edit {
+            background: #2563eb;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+
+        .btn-delete {
+            background: #dc2626;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+
+        .btn-logout {
+            background: #dc2626;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: #2a2a2a;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #3a3a3a;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #10b981;
+        }
+
+        .stat-label {
+            color: #b0b0b0;
+            margin-top: 0.5rem;
+        }
+
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0a0a0a;
+        }
+
+        .login-box {
+            background: #1a1a1a;
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid #2a2a2a;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .login-box h2 {
+            color: white;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        .alert-success {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid #10b981;
+            color: #10b981;
+        }
+
+        .alert-error {
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid #dc2626;
+            color: #dc2626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-container">
+        <div class="login-box">
+            <h2>Admin Login</h2>
+            <div id="loginAlert"></div>
+            <form id="loginForm" class="admin-form">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn-add" style="width: 100%">Login</button>
+            </form>
+            <p style="color: #b0b0b0; text-align: center; margin-top: 1rem; font-size: 0.875rem;">
+                Default: admin / admin123
+            </p>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard" style="display: none;">
+        <div class="admin-container">
+            <div class="admin-header">
+                <div>
+                    <h1 style="color: white; margin: 0;">ATN Admin Dashboard</h1>
+                    <p style="color: #b0b0b0; margin: 0.5rem 0 0 0;">Manage your website content</p>
+                </div>
+                <button onclick="logout()" class="btn-logout">Logout</button>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="statsProjects">0</div>
+                    <div class="stat-label">Total Projects</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="statsTeam">0</div>
+                    <div class="stat-label">Team Members</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="statsServices">0</div>
+                    <div class="stat-label">Services</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="statsMessages">0</div>
+                    <div class="stat-label">Messages</div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="admin-nav">
+                <button class="active" onclick="switchTab('projects')">Projects</button>
+                <button onclick="switchTab('team')">Team Members</button>
+                <button onclick="switchTab('services')">Services</button>
+                <button onclick="switchTab('messages')">Messages</button>
+            </div>
+
+            <!-- Projects Section -->
+            <div id="projectsSection" class="admin-section active">
+                <h2 style="color: white; margin-bottom: 1rem;">Manage Projects</h2>
+
+                <div class="admin-form" style="margin-bottom: 2rem;">
+                    <div class="form-group">
+                        <label>Project Name</label>
+                        <input type="text" id="projectName" placeholder="E-commerce Platform">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea id="projectDesc" placeholder="Brief description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Image URL</label>
+                        <input type="text" id="projectImage" placeholder="https://...">
+                    </div>
+                    <div class="form-group">
+                        <label>Technologies (comma separated)</label>
+                        <input type="text" id="projectTech" placeholder="React, Node.js, MongoDB">
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select id="projectCategory">
+                            <option value="web">Web Development</option>
+                            <option value="mobile">Mobile Apps</option>
+                            <option value="design">UI/UX Design</option>
+                            <option value="ecommerce">E-commerce</option>
+                        </select>
+                    </div>
+                    <button onclick="addProject()" class="btn-add">Add Project</button>
+                </div>
+
+                <div id="projectsList" class="admin-grid"></div>
+            </div>
+
+            <!-- Team Section -->
+            <div id="teamSection" class="admin-section">
+                <h2 style="color: white; margin-bottom: 1rem;">Manage Team Members</h2>
+
+                <div class="admin-form" style="margin-bottom: 2rem;">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" id="teamName" placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label>Role</label>
+                        <input type="text" id="teamRole" placeholder="Senior Developer">
+                    </div>
+                    <div class="form-group">
+                        <label>Image URL</label>
+                        <input type="text" id="teamImage" placeholder="assets/images/team/...">
+                    </div>
+                    <div class="form-group">
+                        <label>Skills (comma separated)</label>
+                        <input type="text" id="teamSkills" placeholder="React, Node.js, Python">
+                    </div>
+                    <button onclick="addTeamMember()" class="btn-add">Add Team Member</button>
+                </div>
+
+                <div id="teamList" class="admin-grid"></div>
+            </div>
+
+            <!-- Services Section -->
+            <div id="servicesSection" class="admin-section">
+                <h2 style="color: white; margin-bottom: 1rem;">Manage Services</h2>
+
+                <div class="admin-form" style="margin-bottom: 2rem;">
+                    <div class="form-group">
+                        <label>Service Name</label>
+                        <input type="text" id="serviceName" placeholder="Web Development">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea id="serviceDesc" placeholder="Service description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Icon (emoji or text)</label>
+                        <input type="text" id="serviceIcon" placeholder="💻">
+                    </div>
+                    <button onclick="addService()" class="btn-add">Add Service</button>
+                </div>
+
+                <div id="servicesList" class="admin-grid"></div>
+            </div>
+
+            <!-- Messages Section -->
+            <div id="messagesSection" class="admin-section">
+                <h2 style="color: white; margin-bottom: 1rem;">Contact Form Messages</h2>
+                <div id="messagesList" class="admin-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/admin.js"></script>
+</body>
+</html>

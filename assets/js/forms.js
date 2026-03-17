@@ -261,6 +261,15 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
+    // Save to localStorage for admin dashboard
+    const messages = JSON.parse(localStorage.getItem('messages') || '[]');
+    messages.push({
+      id: Date.now(),
+      ...data,
+      date: new Date().toISOString()
+    });
+    localStorage.setItem('messages', JSON.stringify(messages));
+
     // Simulate API call (replace with actual endpoint)
     setTimeout(() => {
       // SUCCESS SIMULATION
