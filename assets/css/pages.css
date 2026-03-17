@@ -125,10 +125,15 @@
    ABOUT PREVIEW SECTION
    ============================================ */
 .about-preview-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-3xl);
+  display: flex;
+  justify-content: center;
   align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-preview-text {
+  text-align: center;
 }
 
 .about-preview-text h2 {
@@ -137,7 +142,9 @@
 
 .check-list {
   list-style: none;
-  margin: var(--spacing-lg) 0;
+  margin: var(--spacing-lg) auto;
+  max-width: 500px;
+  text-align: left;
 }
 
 .check-list li {
