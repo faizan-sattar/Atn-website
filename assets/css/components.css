@@ -43,7 +43,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: var(--font-xl);
+  font-size: 1.5rem;
   font-weight: var(--font-bold);
   font-family: var(--font-heading);
   color: #ffffff;
@@ -57,7 +57,7 @@
 
 .logo img,
 .logo-image {
-  height: 40px;
+  height: 35px;
   width: auto;
   border-radius: 4px;
 }
@@ -120,6 +120,10 @@
   cursor: pointer;
   padding: 0.5rem;
   z-index: var(--z-fixed);
+  position: absolute;
+  right: var(--spacing-md);
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .mobile-menu-toggle span {

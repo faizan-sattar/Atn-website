@@ -193,10 +193,16 @@
   /* Header */
   .header-container {
     padding: 0.75rem var(--spacing-sm);
+    justify-content: flex-start;
+  }
+
+  .header-container .logo {
+    position: relative;
+    left: 0;
   }
 
   .logo {
-    font-size: var(--font-lg);
+    font-size: 1.25rem;
   }
 
   .logo img {
@@ -783,6 +789,39 @@
   .form-textarea:focus,
   .form-select:focus {
     border-width: 3px;
+  }
+
+  /* Talent Network Mobile */
+  .talent-network-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+  }
+
+  .talent-network-title h2 {
+    font-size: var(--font-2xl);
+  }
+
+  .talent-network-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .talent-card {
+    padding: var(--spacing-md);
+  }
+
+  .talent-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .talent-skills {
+    gap: 0.5rem;
+  }
+
+  .skill-tag {
+    font-size: 0.75rem;
+    padding: 4px 10px;
   }
 
 }
