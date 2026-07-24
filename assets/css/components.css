@@ -1084,8 +1084,9 @@
    ============================================ */
 .talent-network-header {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   margin-bottom: var(--spacing-2xl);
   gap: var(--spacing-lg);
 }
