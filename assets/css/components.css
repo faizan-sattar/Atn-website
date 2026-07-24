@@ -11,9 +11,9 @@
   top: 0;
   left: 0;
   right: 0;
-  background-color: #000000;
-  border-bottom: 1px solid #2a2a2a;
-  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   z-index: var(--z-sticky);
   transition: all var(--transition-base);
 }
@@ -38,6 +38,11 @@
   left: var(--spacing-md);
 }
 
+.nav-menu ul li:last-child {
+  position: absolute;
+  right: var(--spacing-md);
+}
+
 /* Logo */
 .logo {
   display: flex;
@@ -46,7 +51,7 @@
   font-size: 1.75rem;
   font-weight: var(--font-bold);
   font-family: var(--font-heading);
-  color: #ffffff;
+  color: #0869af;
   text-decoration: none;
   transition: all var(--transition-base);
 }
@@ -60,6 +65,13 @@
   height: 32px;
   width: auto;
   border-radius: 4px;
+}
+
+.logo span {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  padding-top: 10px;
 }
 
 /* Navigation Menu - Desktop */
@@ -83,7 +95,7 @@
 .nav-menu a {
   font-size: var(--font-base);
   font-weight: var(--font-medium);
-  color: #e0e0e0;
+  color: #1a1a1a;
   transition: color var(--transition-base);
   position: relative;
 }
@@ -130,7 +142,7 @@
   display: block;
   width: 25px;
   height: 3px;
-  background-color: #ffffff;
+  background-color: #1a1a1a;
   margin: 5px 0;
   transition: all var(--transition-base);
   border-radius: var(--radius-sm);
@@ -506,45 +518,33 @@
   overflow: hidden;
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-md);
-  transition: all var(--transition-base);
-}
-
-.project-card:hover {
-  box-shadow: var(--shadow-2xl);
-  transform: translateY(-8px);
+  display: flex;
+  flex-direction: column;
+  background: #0a0a0a;
 }
 
 .project-image {
   width: 100%;
   height: 280px;
   object-fit: cover;
-  transition: transform var(--transition-slow);
-}
-
-.project-card:hover .project-image {
-  transform: scale(1.05);
+  display: block;
 }
 
 .project-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to top, rgba(15, 23, 42, 0.95), transparent);
+  position: static;
+  background: #0a0a0a;
   padding: var(--spacing-lg);
   color: var(--white);
-  transform: translateY(20px);
-  transition: transform var(--transition-base);
-}
-
-.project-card:hover .project-overlay {
-  transform: translateY(0);
 }
 
 .project-overlay h3 {
   color: var(--white);
   font-size: var(--font-xl);
   margin-bottom: var(--spacing-xs);
+}
+
+.project-overlay p {
+  color: #b0b0b0;
 }
 
 .project-tech {
@@ -1063,7 +1063,7 @@
 
 .section-title h2 {
   font-size: var(--font-4xl);
-  color: var(--dark-bg);
+  color: #e9e2e2;
   margin-bottom: var(--spacing-sm);
 }
 
@@ -1108,24 +1108,27 @@
 .talent-network-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--spacing-lg);
+  row-gap: 100px;
+  column-gap: var(--spacing-lg);
   align-items: stretch;
 }
 
 .talent-card,
 .talent-discover-card {
-  background-color: #0a0a0a;
-  border: 1px solid #2a2a2a;
-  border-radius: 16px;
-  padding: var(--spacing-xl);
+  background: linear-gradient(180deg, #2b2b2b 0%, #161616 100%);
+  border: 1px solid #c9a35c;
+  border-radius: 100px 100px 20px 20px;
+  padding: 95px var(--spacing-lg) var(--spacing-xl);
   transition: all var(--transition-normal);
   height: 100%;
+  position: relative;
+  overflow: visible;
 }
 
 .talent-card:hover {
   transform: translateY(-5px);
-  border-color: #3a3a3a;
-  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.1);
+  border-color: #e0be7f;
+  box-shadow: 0 8px 24px rgba(201, 163, 92, 0.2);
 }
 
 .talent-card-inner,
@@ -1138,18 +1141,16 @@
 }
 
 .talent-image {
-  width: 180px;
-  height: 180px;
+  position: absolute;
+  top: -75px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: var(--spacing-lg);
-  filter: grayscale(100%);
-  transition: filter var(--transition-normal);
-  border: 3px solid #2a2a2a;
-}
-
-.talent-card:hover .talent-image {
-  filter: grayscale(0%);
+  border: 3px solid #c9a35c;
+  z-index: 2;
 }
 
 .talent-card h3 {
@@ -1244,7 +1245,8 @@
   }
 
   .talent-image {
-    width: 150px;
-    height: 150px;
+    width: 110px;
+    height: 110px;
+    top: -55px;
   }
 }

@@ -807,12 +807,13 @@
   }
 
   .talent-card {
-    padding: var(--spacing-md);
+    padding-top: 70px;
   }
 
   .talent-image {
-    width: 120px;
-    height: 120px;
+    width: 95px;
+    height: 95px;
+    top: -48px;
   }
 
   .talent-skills {

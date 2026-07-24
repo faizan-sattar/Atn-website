@@ -233,7 +233,7 @@ p {
 .lead {
   font-size: var(--font-xl);
   font-weight: var(--font-medium);
-  color: var(--dark-gray);
+  color: #b0b0b0;
 }
 
 .small-text {
