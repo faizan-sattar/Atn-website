@@ -11,9 +11,7 @@
   top: 0;
   left: 0;
   right: 0;
-  background-color: rgba(10, 10, 10, 0.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background-color: #000000;
   border-bottom: 1px solid var(--light-gray);
   box-shadow: none;
   z-index: var(--z-sticky);
@@ -97,7 +95,7 @@
 .nav-menu a {
   font-size: var(--font-base);
   font-weight: var(--font-medium);
-  color: #e0e0e0;
+  color: #ffffff;
   transition: color var(--transition-base);
   position: relative;
 }
@@ -144,7 +142,7 @@
   display: block;
   width: 25px;
   height: 3px;
-  background-color: #e0e0e0;
+  background-color: #ffffff;
   margin: 5px 0;
   transition: all var(--transition-base);
   border-radius: var(--radius-sm);
