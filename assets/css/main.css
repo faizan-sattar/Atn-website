@@ -91,6 +91,7 @@
   /* Transitions */
   --transition-fast: 150ms ease-in-out;
   --transition-base: 300ms ease-in-out;
+  --transition-normal: 300ms ease-in-out;
   --transition-slow: 500ms ease-in-out;
 
   /* Z-index Scale */
@@ -579,10 +580,11 @@ em, i {
 /* Badge */
 .badge {
   display: inline-block;
-  padding: 0.25rem 0.75rem;
+  padding: 0.25rem 0.875rem;
   font-size: var(--font-sm);
-  font-weight: var(--font-medium);
+  font-weight: var(--font-semibold);
   border-radius: var(--radius-full);
+  line-height: 1;
   background-color: var(--primary-color);
   color: var(--white);
 }

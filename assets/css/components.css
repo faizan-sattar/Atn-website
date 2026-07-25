@@ -11,9 +11,11 @@
   top: 0;
   left: 0;
   right: 0;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  background-color: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--light-gray);
+  box-shadow: none;
   z-index: var(--z-sticky);
   transition: all var(--transition-base);
 }
@@ -51,7 +53,7 @@
   font-size: 1.75rem;
   font-weight: var(--font-bold);
   font-family: var(--font-heading);
-  color: #0869af;
+  color: var(--white);
   text-decoration: none;
   transition: all var(--transition-base);
 }
@@ -95,7 +97,7 @@
 .nav-menu a {
   font-size: var(--font-base);
   font-weight: var(--font-medium);
-  color: #1a1a1a;
+  color: #e0e0e0;
   transition: color var(--transition-base);
   position: relative;
 }
@@ -142,7 +144,7 @@
   display: block;
   width: 25px;
   height: 3px;
-  background-color: #1a1a1a;
+  background-color: #e0e0e0;
   margin: 5px 0;
   transition: all var(--transition-base);
   border-radius: var(--radius-sm);
@@ -566,7 +568,8 @@
 
 /* Blog Card */
 .blog-card {
-  background-color: var(--white);
+  background-color: var(--dark-gray);
+  border: 1px solid var(--light-gray);
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
@@ -595,16 +598,27 @@
 
 .blog-meta {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--spacing-md);
   font-size: var(--font-sm);
   color: var(--medium-gray);
   margin-bottom: var(--spacing-sm);
 }
 
+.blog-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.blog-meta svg {
+  flex-shrink: 0;
+}
+
 .blog-card h3 {
   font-size: var(--font-xl);
   margin-bottom: var(--spacing-sm);
-  color: var(--dark-bg);
+  color: var(--white);
 }
 
 .blog-excerpt {
@@ -630,7 +644,8 @@
 /* Team Member Card */
 .team-card {
   text-align: center;
-  background-color: var(--white);
+  background-color: var(--dark-gray);
+  border: 1px solid var(--light-gray);
   border-radius: var(--radius-lg);
   padding: var(--spacing-lg);
   box-shadow: var(--shadow-sm);
@@ -659,7 +674,7 @@
 .team-card h3 {
   font-size: var(--font-xl);
   margin-bottom: 0.25rem;
-  color: var(--dark-bg);
+  color: var(--white);
 }
 
 .team-role {
@@ -799,7 +814,7 @@
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: all var(--transition-base);
-  color: var(--dark-gray);
+  color: #e0e0e0;
   font-weight: var(--font-medium);
 }
 
@@ -865,7 +880,9 @@
   right: 2rem;
   min-width: 300px;
   padding: 1rem 1.5rem;
-  background-color: var(--white);
+  background-color: var(--dark-gray);
+  border: 1px solid var(--light-gray);
+  color: #e0e0e0;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-xl);
   z-index: var(--z-tooltip);
@@ -883,15 +900,6 @@
 /* ============================================
    BADGES & TAGS
    ============================================ */
-.badge {
-  display: inline-block;
-  padding: 0.25rem 0.875rem;
-  font-size: var(--font-sm);
-  font-weight: var(--font-semibold);
-  border-radius: var(--radius-full);
-  line-height: 1;
-}
-
 .badge-primary {
   background-color: var(--primary-color);
   color: var(--white);
@@ -919,7 +927,8 @@
 .stat-card {
   text-align: center;
   padding: var(--spacing-xl);
-  background-color: var(--white);
+  background-color: var(--dark-gray);
+  border: 1px solid var(--light-gray);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
 }
@@ -987,7 +996,9 @@
 }
 
 .modal-content {
-  background-color: var(--white);
+  background-color: var(--dark-gray);
+  border: 1px solid var(--light-gray);
+  color: #e0e0e0;
   border-radius: var(--radius-lg);
   padding: var(--spacing-xl);
   max-width: 500px;
@@ -1020,7 +1031,7 @@
 }
 
 .modal-close:hover {
-  color: var(--dark-bg);
+  color: var(--white);
 }
 
 /* ============================================
@@ -1049,7 +1060,7 @@
 }
 
 .breadcrumbs .current {
-  color: var(--dark-bg);
+  color: var(--white);
   font-weight: var(--font-medium);
 }
 
@@ -1063,7 +1074,7 @@
 
 .section-title h2 {
   font-size: var(--font-4xl);
-  color: #e9e2e2;
+  color: var(--white);
   margin-bottom: var(--spacing-sm);
 }
 

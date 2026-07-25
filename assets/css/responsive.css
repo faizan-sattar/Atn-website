@@ -558,6 +558,40 @@
     padding-bottom: var(--spacing-lg) !important;
   }
 
+  /* Talent Network Mobile */
+  .talent-network-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+  }
+
+  .talent-network-title h2 {
+    font-size: var(--font-2xl);
+  }
+
+  .talent-network-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .talent-card {
+    padding-top: 70px;
+  }
+
+  .talent-image {
+    width: 95px;
+    height: 95px;
+    top: -48px;
+  }
+
+  .talent-skills {
+    gap: 0.5rem;
+  }
+
+  .skill-tag {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+  }
+
 }
 
 /* ============================================
@@ -794,40 +828,6 @@
   .form-textarea:focus,
   .form-select:focus {
     border-width: 3px;
-  }
-
-  /* Talent Network Mobile */
-  .talent-network-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--spacing-md);
-  }
-
-  .talent-network-title h2 {
-    font-size: var(--font-2xl);
-  }
-
-  .talent-network-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .talent-card {
-    padding-top: 70px;
-  }
-
-  .talent-image {
-    width: 95px;
-    height: 95px;
-    top: -48px;
-  }
-
-  .talent-skills {
-    gap: 0.5rem;
-  }
-
-  .skill-tag {
-    font-size: 0.75rem;
-    padding: 4px 10px;
   }
 
 }
