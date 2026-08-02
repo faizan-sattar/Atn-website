@@ -8,7 +8,9 @@
       "Bash(git push:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(gh:*)"
+      "Bash(gh:*)",
+      "Bash(curl -sI http://localhost:8080/index.html)",
+      "Bash(curl -s http://localhost:8080/index.html)"
     ]
   }
 }
