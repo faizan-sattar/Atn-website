@@ -778,6 +778,45 @@ em, i {
 .delay-400 { animation-delay: 400ms; }
 .delay-500 { animation-delay: 500ms; }
 
+/* Stagger Group Items (revealed via IntersectionObserver in animations.js) */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.stagger-item.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   AMBIENT GLOW ORBS (decorative background depth)
+   ============================================ */
+.bg-orb-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.bg-orb-primary {
+  background: var(--primary-color);
+}
+
+.bg-orb-secondary {
+  background: var(--secondary-color);
+}
+
 /* ============================================
    PRINT STYLES
    ============================================ */

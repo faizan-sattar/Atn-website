@@ -19,6 +19,9 @@
 }
 
 .site-header.scrolled {
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
   box-shadow: var(--shadow-md);
 }
 
@@ -188,7 +191,7 @@
 .mobile-nav a {
   font-size: var(--font-lg);
   font-weight: var(--font-medium);
-  color: #e0e0e0;
+  color: #ffffff;
   display: block;
   padding: 0.5rem 0;
   transition: all var(--transition-base);
@@ -312,11 +315,33 @@
   text-decoration: none;
   transition: all var(--transition-base);
   white-space: nowrap;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+/* Shine sweep on hover (primary/secondary only) */
+.btn-primary::before,
+.btn-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+
+.btn-primary:hover:not(:disabled)::before,
+.btn-secondary:hover:not(:disabled)::before {
+  left: 125%;
 }
 
 /* Primary Button */
@@ -328,7 +353,7 @@
 
 .btn-primary:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-lg), 0 0 20px rgba(37, 99, 235, 0.45);
 }
 
 .btn-primary:active:not(:disabled) {
@@ -439,7 +464,8 @@
 }
 
 .card:hover {
-  box-shadow: var(--shadow-xl);
+  box-shadow: var(--shadow-xl), 0 0 24px rgba(37, 99, 235, 0.15);
+  border-color: rgba(37, 99, 235, 0.4);
   transform: translateY(-5px);
 }
 
@@ -478,7 +504,7 @@
 }
 
 .service-card:hover {
-  box-shadow: var(--shadow-xl);
+  box-shadow: var(--shadow-xl), 0 0 30px rgba(37, 99, 235, 0.2);
   transform: translateY(-10px);
   border-color: var(--primary-color);
 }
@@ -527,6 +553,18 @@
   display: flex;
   flex-direction: column;
   background: #0a0a0a;
+  border: 1px solid #2a2a2a;
+  transition: all var(--transition-base);
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(124, 58, 237, 0.4);
+  box-shadow: var(--shadow-xl), 0 0 26px rgba(124, 58, 237, 0.2);
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
 }
 
 .project-image {
@@ -534,6 +572,7 @@
   height: 280px;
   object-fit: cover;
   display: block;
+  transition: transform var(--transition-slow);
 }
 
 .project-overlay {
@@ -583,7 +622,8 @@
 }
 
 .blog-card:hover {
-  box-shadow: var(--shadow-xl);
+  box-shadow: var(--shadow-xl), 0 0 24px rgba(37, 99, 235, 0.15);
+  border-color: rgba(37, 99, 235, 0.35);
   transform: translateY(-5px);
 }
 
@@ -657,7 +697,8 @@
 }
 
 .team-card:hover {
-  box-shadow: var(--shadow-xl);
+  box-shadow: var(--shadow-xl), 0 0 24px rgba(37, 99, 235, 0.15);
+  border-color: rgba(37, 99, 235, 0.35);
   transform: translateY(-5px);
 }
 
@@ -1077,9 +1118,23 @@
 }
 
 .section-title h2 {
+  position: relative;
   font-size: var(--font-4xl);
   color: var(--white);
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  display: inline-block;
+}
+
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -0.75rem;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 3px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-primary);
 }
 
 .section-title .subtitle {
